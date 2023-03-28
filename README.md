@@ -91,3 +91,6 @@ Exemple de requêtes :
 
 Lien : 
   [Weatherapi](https://www.weatherapi.com/)
+  
+# Astuce :
+* Pour une meilleure expérience utilisateur, afficher l'application directement sur votre mobile pour avoir un premier aperçu :)
