@@ -19,7 +19,7 @@ class Settings extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Container(
-          padding: const EdgeInsets.only(top: 120),
+          padding: const EdgeInsets.only(top: 110),
           width: size.width,
           height: size.height,
           color: const Color(0xff081b25),

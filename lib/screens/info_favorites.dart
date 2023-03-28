@@ -19,7 +19,7 @@ class InfoFavorites extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       body: Container(
-          padding: const EdgeInsets.only(top: 90),
+          padding: const EdgeInsets.only(top: 95),
           width: size.width,
           height: size.height,
           color: const Color(0xff081b25),
