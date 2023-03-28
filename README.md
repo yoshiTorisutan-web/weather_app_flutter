@@ -97,10 +97,10 @@ Lien :
 
 # Présentation visuelle :
 <div>
+  <img src="Capture écran - weather_app/Dark_favorites.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/White_favorites.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/Menu.jpg" width="300" height="600">
   <img src="Capture écran - weather_app/Add_city.jpg" width="300" height="600">
-  <img src="assets/logo_weather.png">
-  <img src="assets/logo_weather.png">
-  <img src="assets/logo_weather.png">
-  <img src="assets/logo_weather.png">
-  <img src="assets/logo_weather.png">
+  <img src="Capture écran - weather_app/Weather_details.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/Forecasts.jpg" width="300" height="600">
 </div>
