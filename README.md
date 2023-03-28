@@ -94,3 +94,13 @@ Lien :
   
 # Astuce :
 * Pour une meilleure expérience utilisateur, afficher l'application directement sur votre mobile pour avoir un premier aperçu :)
+
+# Présentation visuelle :
+<div>
+  <img src="assets/logo_weather.png">
+  <img src="assets/logo_weather.png">
+  <img src="assets/logo_weather.png">
+  <img src="assets/logo_weather.png">
+  <img src="assets/logo_weather.png">
+  <img src="assets/logo_weather.png">
+</div>
