@@ -97,7 +97,7 @@ Lien :
 
 # Présentation visuelle :
 <div>
-  <img src="Capture écran - weather_app/Add_city.jpg" width="200" height="500">
+  <img src="Capture écran - weather_app/Add_city.jpg" width="300" height="600">
   <img src="assets/logo_weather.png">
   <img src="assets/logo_weather.png">
   <img src="assets/logo_weather.png">
