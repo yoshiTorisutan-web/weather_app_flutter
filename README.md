@@ -96,7 +96,7 @@ Lien :
 * Pour une meilleure expérience utilisateur, afficher l'application directement sur votre mobile pour avoir un premier aperçu :)
 
 # Présentation visuelle :
-<div>
+<div align="center">
   <img src="Capture écran - weather_app/Dark_favorites.jpg" width="300" height="600">
   <img src="Capture écran - weather_app/White_favorites.jpg" width="300" height="600">
   <img src="Capture écran - weather_app/Menu.jpg" width="300" height="600">
