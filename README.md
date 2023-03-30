@@ -91,3 +91,16 @@ Exemple de requêtes :
 
 Lien : 
   [Weatherapi](https://www.weatherapi.com/)
+  
+# Astuce :
+* Pour une meilleure expérience utilisateur, afficher l'application directement sur votre mobile pour avoir un premier aperçu :)
+
+# Présentation visuelle :
+<div align="center">
+  <img src="Capture écran - weather_app/Dark_favorites.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/White_favorites.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/Menu.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/Add_city.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/Weather_details.jpg" width="300" height="600">
+  <img src="Capture écran - weather_app/Forecasts.jpg" width="300" height="600">
+</div>
