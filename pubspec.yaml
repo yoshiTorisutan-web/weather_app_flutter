@@ -53,15 +53,15 @@ dependencies:
   geocoding: ^2.0.1
   provider: ^6.0.5
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_launcher_icons: ^0.12.0
-
 flutter_icons:
   android: "launcher_icon" 
   ios: true
   image_path: "assets/logo_weather.png" 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.12.0
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
