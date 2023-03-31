@@ -14,6 +14,9 @@ Elle reprend l'exemple de nombreuses applications météo présentes sur tous le
 
 # Présentation des fonctionnalités
 
+Icône personnalisé de l'application :
+  - Remplacement de l'icône flutter par le logo de l'application lorsqu'on le télécharge sur le téléphone
+
 Page d'accueil :
   - Page d'accueil pour accéder à l'application
 
