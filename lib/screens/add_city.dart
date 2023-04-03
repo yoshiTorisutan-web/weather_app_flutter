@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
+import 'package:weather_app/repositories/preferences_cities_repository.dart';
 import 'package:weather_app/screens/favorites.dart';
 import '../models/cities_models.dart';
 
@@ -169,9 +169,8 @@ class _SearchCityState extends State<SearchCity> {
                               color: Color.fromARGB(255, 255, 255, 255),
                               fontSize: 12)),
                       onTap: () async {
-                        SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
-                        prefs.setString('selectedCity', cityName);
+                        final prefs = PreferencesRepositoryCities();
+                        await prefs.setSelectedCity(cityName);
                         // ignore: use_build_context_synchronously
                         Navigator.push(
                           context,
@@ -182,7 +181,9 @@ class _SearchCityState extends State<SearchCity> {
                         );
                         // ignore: use_build_context_synchronously
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Entreprise ajouté ✅'), backgroundColor: Colors.green),
+                          const SnackBar(
+                              content: Text('Entreprise ajouté ✅'),
+                              backgroundColor: Colors.green),
                         );
                       },
                     );

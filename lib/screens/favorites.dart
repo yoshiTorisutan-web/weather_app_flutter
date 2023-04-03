@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:weather_app/repositories/preferences_cities_repository.dart';
 import '../blocs/theme.dart';
 import '../widgets/drawer.dart';
 import 'add_city.dart';
@@ -21,14 +21,10 @@ class _FavoritesState extends State<Favorites> {
   @override
   void initState() {
     super.initState();
-    getSelectedCity();
-  }
-
-  Future<void> getSelectedCity() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String selectedCity = prefs.getString('selectedCity') ?? '';
-    setState(() {
-      this.selectedCity = selectedCity;
+    PreferencesRepositoryCities().getSelectedCity().then((selectedCity) {
+      setState(() {
+        this.selectedCity = selectedCity;
+      });
     });
   }
 

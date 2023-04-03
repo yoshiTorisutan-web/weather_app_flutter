@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:weather_app/blocs/default_cities.dart';
 import 'package:weather_app/screens/add_city.dart';
 import 'package:weather_app/screens/favorites.dart';
 import 'package:weather_app/screens/forecast.dart';
@@ -24,9 +24,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => DefaultCities(),
-      child: MaterialApp(
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+    return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       routes: {
@@ -38,6 +37,6 @@ class MyApp extends StatelessWidget {
         '/map': (context) => const MapScreen(selectedCity: ''),
       },
       initialRoute: '/welcome',
-    ));
+    );
   }
 }

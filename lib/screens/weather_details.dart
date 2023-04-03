@@ -22,6 +22,7 @@ class WeatherDetails extends StatefulWidget {
 
 class _WeatherDetailsPageState extends State<WeatherDetails> {
   final Constants _constants = Constants();
+  final ModelWeather modelWeather = ModelWeather();
 
   // ignore: non_constant_identifier_names
   
@@ -29,7 +30,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
   void fetchWeatherData(String selectedCity) async {
     try {
       var searchResult =
-          await http.get(Uri.parse(searchWeatherAPI + selectedCity));
+          await http.get(Uri.parse(modelWeather.searchWeatherAPI + selectedCity));
 
       final weatherData = Map<String, dynamic>.from(
           json.decode(searchResult.body) ?? 'No data');
@@ -39,25 +40,25 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
       var currentWeather = weatherData["current"];
 
       setState(() {
-        location = getShortLocationName(locationData["name"]);
+        modelWeather.location = getShortLocationName(locationData["name"]);
 
         var parsedDate =
             DateTime.parse(locationData["localtime"].substring(0, 10));
         var newDate = DateFormat('MMMMEEEEd').format(parsedDate);
-        currentDate = newDate;
+        modelWeather.currentDate = newDate;
 
         //updateWeather
-        currentWeatherStatus = currentWeather["condition"]["text"];
+        modelWeather.currentWeatherStatus = currentWeather["condition"]["text"];
         weatherIcon =
-            "${currentWeatherStatus.replaceAll(' ', '').toLowerCase()}.png";
-        temperature = currentWeather["temp_c"].toInt();
-        windSpeed = currentWeather["wind_kph"].toInt();
-        humidity = currentWeather["humidity"].toInt();
-        cloud = currentWeather["cloud"].toInt();
+            "${modelWeather.currentWeatherStatus.replaceAll(' ', '').toLowerCase()}.png";
+        modelWeather.temperature = currentWeather["temp_c"].toInt();
+        modelWeather.windSpeed = currentWeather["wind_kph"].toInt();
+        modelWeather.humidity = currentWeather["humidity"].toInt();
+        modelWeather.cloud = currentWeather["cloud"].toInt();
 
         //Forecast data
-        dailyWeatherForecast = weatherData["forecast"]["forecastday"];
-        hourlyWeatherForecast = dailyWeatherForecast[0]["hour"];
+        modelWeather.dailyWeatherForecast = weatherData["forecast"]["forecastday"];
+        modelWeather.hourlyWeatherForecast = modelWeather.dailyWeatherForecast[0]["hour"];
       });
     } catch (e) {
       //debugPrint(e);
@@ -148,7 +149,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                             width: 2,
                           ),
                           Text(
-                            location,
+                            modelWeather.location,
                             style: const TextStyle(
                                 color: Color.fromARGB(255, 255, 255, 255),
                                 fontWeight: FontWeight.w600,
@@ -184,7 +185,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Text(
-                          temperature.toString(),
+                          modelWeather.temperature.toString(),
                           style: const TextStyle(
                               fontSize: 100,
                               fontWeight: FontWeight.w600,
@@ -203,7 +204,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                     ],
                   ),
                   Text(
-                    currentWeatherStatus,
+                    modelWeather.currentWeatherStatus,
                     style: const TextStyle(
                         color: Colors.white70,
                         fontSize: 20.0,
@@ -211,7 +212,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                         fontFamily: 'Hubballi'),
                   ),
                   Text(
-                    currentDate,
+                    modelWeather.currentDate,
                     style: const TextStyle(
                         color: Colors.white70,
                         fontWeight: FontWeight.w600,
@@ -229,17 +230,17 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         WeatherItem(
-                          value: windSpeed.toInt(),
+                          value: modelWeather.windSpeed.toInt(),
                           unit: 'km/h',
                           imageUrl: 'assets/windspeed.png',
                         ),
                         WeatherItem(
-                          value: humidity.toInt(),
+                          value: modelWeather.humidity.toInt(),
                           unit: '%',
                           imageUrl: 'assets/humidity.png',
                         ),
                         WeatherItem(
-                          value: cloud.toInt(),
+                          value: modelWeather.cloud.toInt(),
                           unit: '%',
                           imageUrl: 'assets/cloud.png',
                         ),
@@ -273,7 +274,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                             MaterialPageRoute(
                                 builder: (_) => DetailPage(
                                       dailyForecastWeather:
-                                          dailyWeatherForecast,
+                                          modelWeather.dailyWeatherForecast,
                                     ))), //this will open forecast screen
                         child: const Text(
                           'Forecasts >',
@@ -292,7 +293,7 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                   SizedBox(
                     height: 120,
                     child: ListView.builder(
-                      itemCount: hourlyWeatherForecast.length,
+                      itemCount: modelWeather.hourlyWeatherForecast.length,
                       scrollDirection: Axis.horizontal,
                       physics: const BouncingScrollPhysics(),
                       itemBuilder: (BuildContext context, int index) {
@@ -300,20 +301,20 @@ class _WeatherDetailsPageState extends State<WeatherDetails> {
                             DateFormat('HH:mm:ss').format(DateTime.now());
                         String currentHour = currentTime.substring(0, 2);
 
-                        String forecastTime = hourlyWeatherForecast[index]
+                        String forecastTime = modelWeather.hourlyWeatherForecast[index]
                                 ["time"]
                             .substring(11, 16);
-                        String forecastHour = hourlyWeatherForecast[index]
+                        String forecastHour = modelWeather.hourlyWeatherForecast[index]
                                 ["time"]
                             .substring(11, 13);
 
                         String forecastWeatherName =
-                            hourlyWeatherForecast[index]["condition"]["text"];
+                            modelWeather.hourlyWeatherForecast[index]["condition"]["text"];
                         String forecastWeatherIcon =
                             "${forecastWeatherName.replaceAll(' ', '').toLowerCase()}.png";
 
                         String forecastTemperature =
-                            hourlyWeatherForecast[index]["temp_c"]
+                            modelWeather.hourlyWeatherForecast[index]["temp_c"]
                                 .round()
                                 .toString();
                         return Container(
